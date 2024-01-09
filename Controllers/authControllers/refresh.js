@@ -1,18 +1,18 @@
-const{login} = require("./login");
-const { User } = require("../../Schema/UserSchema/authSchema");
+const authenticate = require("../../middleware/auth");
 const cookie = require("cookie-parser");
 
 
 
 
 const refresh = async(req, res)=>{
+    const{verify} = authenticate();
     const refreshToken = req.cookies.refreshToken;
         if(!refreshToken){
             res.status(401).json({mssg: "no refresh token found"});   
         }
         try{
         const decoded = jwt.verify(refreshToken, process.env.JWT_REFRESH_TOKEN);
-        const accessToken = jwt.sign({id:decode.user}, process.env.JWT_ACCESS_TOKEN, {
+        const accessToken = jwt.sign({id:decoded.user}, process.env.JWT_ACCESS_TOKEN, {
             expiresIn : process.env.ACCESS_TOKEN_EXPIRE_TIME});
             res.headers("accessToken", accessToken);
             res.send(decoded.user);

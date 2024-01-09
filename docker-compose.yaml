@@ -1,3 +1,28 @@
+services:
+   mongo_db:
+     image: mongo:latest
+     container_name: mongo_db
+     restart: always
+     ports: 
+      -'4000:4000'
+environment:
+  mongo_username: mongo_username
+  mongo_password: mongo_password
+  mongo_database: Users
+
+
+      
+
+
+app:
+  container_name: e-commerce
+  restart: always
+  ports:
+   -'3300:3300'
+  depends_on: mongo_db
+
+
+
 
 
 

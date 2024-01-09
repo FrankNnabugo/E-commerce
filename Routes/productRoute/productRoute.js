@@ -1,6 +1,10 @@
 const express = require("express");
 const productRouter = express.Router();
-const{CreateProduct, singleProduct , allProducts, deleteProduct, updateProduct} = require("../../Controllers/productControllers/product");
+const{CreateProduct, 
+    singleProduct,
+     allProducts, 
+     deleteProduct, 
+     updateProduct} = require("../../Controllers/productControllers/product");
 const{cacheMiddleware} = require("../../middleware/cacheMiddleware");
 const{authenticate} = require("../../middleware/auth");
 

@@ -93,4 +93,9 @@ const product = await Product.findByIdAndUpdate(id, req.body,{
 
 
 
-    module.exports = {CreateProduct,singleProduct,allProducts,deleteProduct,updateProduct};
+    module.exports = {
+        CreateProduct,
+        singleProduct,
+        allProducts,
+        deleteProduct,
+        updateProduct};

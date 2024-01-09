@@ -9,13 +9,14 @@ const{authenticate} = require("../../middleware/auth");
 const {refresh} = require("../../Controllers/authControllers/refresh");
 const{sendMail} = require("../../utils/sendMail");
 
+
 authRouter.post("/signup", signUp);
-authRouter.post("/login", authenticate, login);
+authRouter.post("/login", login);
 authRouter.post("/forgotPassword", authenticate, forgotPassword)
 authRouter.post("/logOut", logOut);
 authRouter.post("/updatePassword", authenticate, resetPassword);
 authRouter.post("/refresh", refresh);
-authRouter.post("/sendMail", sendMail);
+authRouter.post("/sendMail", authenticate, sendMail);
 authRouter.post("/authenticate", authenticate);
 
 module.exports ={authRouter};

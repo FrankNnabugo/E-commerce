@@ -23,24 +23,6 @@ module.exports = {getCart};
 
 
 
-/** 
+// create cart
 
-const createCart = async(req, res)=>{
-const{productId,quantity, owner} = req.body;
-try{
-    const cart = await Cart.findOne({owner});
-    const product =await Product.findOne({_id:productId});
-    if(!product){
-        res.status(404).send("product not found");
-    }
-    const price = product.price;
-    const name = product.name;
-    if(cart){
-        const productIndex = cart.product.findIndex   
-
-    }
-}
-}
-
-
-        **/
+//delete cart

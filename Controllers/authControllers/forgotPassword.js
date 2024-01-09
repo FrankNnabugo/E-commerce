@@ -12,7 +12,6 @@ const forgotPassword = async(req, res)=>{
         }
 
 const token = await crypto.randomBytes(20).toString("hex");
-const expiry = 3600; 
 const expiresIn = new Date(Date.now() + expiry * 1000); 
 check.token = token;
 check.expiresIn = expiresIn;

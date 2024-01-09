@@ -1,4 +1,4 @@
-const{transporter} = require("../../utils/nodemailer");
+const{transporter} = require("../utils/nodemailer");
 
 const sendMail = async(message)=>{
     try{

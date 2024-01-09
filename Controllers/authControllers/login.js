@@ -25,7 +25,7 @@ const login = async(req, res)=>{
 const accessToken = jwt.sign({id:user}, process.env.JWT_ACCESS_TOKEN, {
     expiresIn:process.env.ACCESS_TOKEN_EXPIRE_TIME
 });
-res.headers("accessToken", accessToken)
+res.headers("authorization", accessToken)
 user.accessToken = accessToken;
 
 
@@ -45,6 +45,7 @@ res.status(200).json({mssg: "user logged in:", user});
 catch(err){
     res.status(500).json({mssg: "error occured while trying to login"});
 }
+return user;
 }
 
 

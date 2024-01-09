@@ -1,15 +1,11 @@
 
-const Cookie = require ("cookie-parser");
-
-
-
-const logOut = async(req, res)=>{
-
+const logOut = async(res)=>{
 try{
 
-    await res.clearCookie("accessToken", {
+    await res.clearCookie("refreshToken", {
        sameSite:"none",
        secure:true,
+       path:"api/auth/refresh"
     });
     res.status(200).json({message: "user logged out:", })
 
