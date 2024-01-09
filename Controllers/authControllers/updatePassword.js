@@ -20,7 +20,7 @@ const resetPassword = async(req, res)=>{
     }
   }
 
-    catch(error){
+    catch(err){
       console.err("err", err);
       res.status(500).json({message: "error reseting password"});
     }
